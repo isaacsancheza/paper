@@ -1,0 +1,19 @@
+name: build and push
+
+on:
+  push:
+    paths:
+      - 'Dockerfile'
+    branches:
+      - master
+  workflow_dispatch:
+
+jobs:
+  build-and-push:
+    permissions:
+      contents: read
+      packages: write
+    uses: ./.github/workflows/build-and-push.yaml
+    with:
+      tag: paper
+      context: .
