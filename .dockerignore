@@ -1,4 +1,6 @@
-paper/
+.git/
 .github/
 README.md
+server.properties
 docker-compose.yaml
+
