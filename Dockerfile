@@ -81,4 +81,4 @@ USER $USERNAME
 ENV Xms=2G
 ENV Xmx=2G
 
-CMD ["sh", "/paper/launch.sh"]
+CMD ["/bin/sh", "-c", "sh ${PAPER_HOME}/launch.sh"]
