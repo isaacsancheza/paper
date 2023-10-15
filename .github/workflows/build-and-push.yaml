@@ -44,5 +44,5 @@ jobs:
         with:
           context: ${{ inputs.context }}
           push: true
-          tags: ${{ env.REGISTRY }}/${{ github.repository }}:${{ github.ref }}
+          tags: ${{ env.REGISTRY }}/${{ github.repository }}:${{ github.sha }}
   
