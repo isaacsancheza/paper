@@ -1,0 +1,10 @@
+version: "3.5"
+
+services:
+  paper:
+    image: paper
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "25565:25565"
