@@ -3,6 +3,7 @@ name: build and push
 on:
   push:
     paths:
+      - launch.sh
       - Dockerfile
     branches:
       - master
