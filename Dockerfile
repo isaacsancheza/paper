@@ -67,6 +67,8 @@ ENV	JAVA_HOME=/usr/java/jdk-$JAVA_VERSION
 ENV PATH=$JAVA_HOME/bin:$PATH	
 ENV PAPER_HOME=/paper
 
+COPY launch.sh "${PAPER_HOME}"
+
 # add non-root user
 RUN groupadd --gid "${USER_GID}" "${USERNAME}" \
     && useradd -s /bin/bash --uid "${USER_UID}" --gid "${USER_GID}" -m "${USERNAME}" \
@@ -75,3 +77,8 @@ RUN groupadd --gid "${USER_GID}" "${USERNAME}" \
 WORKDIR $PAPER_HOME
 
 USER $USERNAME
+
+ENV Xms=2G
+ENV Xmx=2G
+
+CMD ["sh", "/paper/launch.sh"]
