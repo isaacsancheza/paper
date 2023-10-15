@@ -7,7 +7,7 @@ RUN apt-get update  \
     && apt-get install -y --reinstall ca-certificates \
     # 
     # install curl
-    && apt-get install -y --no-install-recommends git curl build-essential \
+    && apt-get install -y --no-install-recommends curl \
     #
     # clean-up/
     && apt-get autoremove -y  \
@@ -44,12 +44,6 @@ RUN set -eux; \
 RUN mkdir -p "${PAPER_HOME}" \
     && curl --output "${PAPER_HOME}/paper.jar" "${PAPER_PKG}" \
     && echo eula=true > "${PAPER_HOME}/eula.txt"
-
-# https://github.com/Tiiffi/mcrcon
-RUN git clone https://github.com/Tiiffi/mcrcon /tmp/mcrcon \
-    && cd /tmp/mcrcon \
-    && make \
-    && make install
 
 
 FROM debian:trixie
