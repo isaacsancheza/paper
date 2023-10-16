@@ -2,12 +2,18 @@ version: "3.5"
 
 services:
   paper:
-    image: kappa
-    # image: ghcr.io/isaacsancheza/paper:42e3de79eca83201e32520b2370a4d77df8133ed
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
       - "25565:25565"
+      - "25575:25575"
     volumes:
-      - "$PWD/paper:/paper"
+      - paper:/paper
+      - $PWD/server.properties:/paper/server.properties
     environment:
       - Xms=4G
       - Xmx=4G
+
+volumes:
+  paper:
